@@ -8,7 +8,7 @@
 
 #### 图1的数据
 
-![1](data\1.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/1.png)
 
 
 
@@ -27,7 +27,7 @@
 
 - 结果
 
-![1的生成树](data\1的生成树.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/1的生成树.png)
 
 ```c
 输入:
@@ -62,7 +62,7 @@
 
 #### 图2的数据
 
-![2](data\2.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/2.png)
 
 
 
@@ -80,7 +80,7 @@
 
 - 结果
 
-![2的生成树](data\2的生成树.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/2的生成树.png)
 
 
 
@@ -114,7 +114,7 @@
 
 #### 图3的数据
 
-![3](data\3.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/3.png)
 
 ```c
 9 15
@@ -137,7 +137,7 @@
 
 - 结果
 
-![3的最小生成树](data\3的最小生成树.png)
+![1.png (345×170) (lhhhs233.cn)](https://php.lhhhs233.cn/img/数据结构/图/并查集实现Kruskal/3的最小生成树.png)
 
 
 
@@ -179,3 +179,4 @@
   边(7,6), 权值为19
 最小生成树的权值是99
 ```
+
