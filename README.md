@@ -12,7 +12,6 @@
 
 解压后，用软件 Typora [typoraio.cn](https://typoraio.cn/) 打开md文件。
 
----
 
 
 
