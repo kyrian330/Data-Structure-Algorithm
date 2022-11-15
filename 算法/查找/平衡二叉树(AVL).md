@@ -8,13 +8,13 @@
 
 ​		二叉排序树(搜索树)一定程度上可以提高搜索效率，但是当原序列有序时，例如序列 A = {1，2，3，4，5，6}，构造二叉搜索树，如下图 。
 
-![8](img\查找\8.png)
+![8](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/8.png)
 
 
 
 ​		依据此序列构造的二叉搜索树为右斜树，同时二叉树退化成单链表，搜索效率降低为 O(n)。就像查找元素 6 需要查找 6 次。
 
-![9](img\查找\9.png)
+![9](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/9.png)
 
 ​		二叉搜索树的查找效率取决于树的高度，因此保持树的高度最小，即可保证树的查找效率。同样的序列 A，将其改为上图的方式存储，查找元素 6 时只需比较 3 次，查找效率提升一倍。
 
@@ -26,7 +26,7 @@
 
 
 
-![10](img\查找\10.png)
+![10](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/10.png)
 
 ​		平衡二叉树的前提首先是棵二叉排序树，而图二 左孩子 > 根；对于图3的58结点，该结点左子树高度为2，右子树为空，平衡因子 = 2，是不平衡的。
 
@@ -34,17 +34,17 @@
 
 ​		距离插入结点最近的，且平衡因子的绝对值大于1的结点为根的子树，称为**最小不平衡子树**。如下图，当插入新结点67时，距离它最近的平衡因子绝对值超过1的结点是70（左子树高2，右子树高0），所以从70开始以下的子树为最小不平衡子树。
 
-![11](img\查找\11.png)
+![11](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/11.png)
 
 #### 构建AVL树
 
 ​		将数组a[10] = {3，2，1，4，5，6，7，10，9，8}来构建一棵平衡二叉树。前两位 3、2可以正常构建，到了第三位 ”1“，发现根结点3的bf变成了2，此时整棵树变成了最小不平衡树，需要调整，如图一（结点左上角数字为平衡因子bf）。因为bf值为正，因此需要将树右旋（顺时针旋转），因此2变成了根结点，3成了2的右孩子，这样三个结点bf都为0，非常平衡。
 
-![12](img\查找\12.png)
+![12](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/12.png)
 
 
 
-![13](img\查找\13.png)
+![13](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/13.png)
 
 
 
@@ -52,19 +52,19 @@
 
 ​		继续，增加结点6，发现结点2的bf变成-2，所以对根左旋，注意此时3本来是4的左孩子，由于旋转后要满足二叉排序树的性质，因此3变成了结点2的右孩子，如图7。增加结点7，同样的左旋，如图8、9。
 
-![14](img\查找\14.png)
+![14](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/14.png)
 
 
 
 ​		增加结点10，结构无变化，如图10。增加结点9，此时结点7的bf为-2，理论上只需要旋转最小不平衡子树7、8、9即可，但如果左旋后结点9成了结点10的右孩子，不符合排序树性质，此时不能简单左旋，如图11。
 
-![15](img\查找\15.png)
+![15](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/15.png)
 
 ​		仔细观察图11，发现根本原因是结点7的bf是-2，而结点10的bf是1，它俩一正一负，符号不统一，而前面的几次旋转，最小不平衡子树的根结点与它的子结点符号都是相同的，这就是不能直接旋转的关键。于是我们先将结点9和结点10右旋，10就变成了9的右子树，这是7、9的bf统一了，这时再对以7为根的子树左旋，如图13。接着插入8，情况和刚才类似，6的bf是-2，而它的右孩子9的bf是1，图14，因此先以9为根，右旋得到图15，此时6、7bf同号，左旋6得到最后的平衡二叉树，图16。
 
 
 
-![16](img\查找\16.png)
+![16](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/16.png)
 
 - 总结
 
@@ -104,7 +104,7 @@ void R_Rotate(BiTNode *& P) {
 
 
 
-![17](img\查找\17.png)
+![17](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/17.png)
 
 
 
@@ -171,7 +171,7 @@ void LeftBalance(BiTNode *& T) {
 
 
 
-![18](img\查找\18.png)
+![18](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E6%9F%A5%E6%89%BE/18.png)
 
 
 
