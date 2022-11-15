@@ -6,12 +6,9 @@
 
 ### :exclamation: 使用说明
 
-- 图片显示
+线上浏览是可以看到插图的，如果想保存后线下观看，就点击右上角的 Code，展开后点击 Download ZIP。
 
-因为文档有大量插图，线上不好维护，所以要把项目**下载**（点击右上角的 Code，展开后点击 Download ZIP）到本地才能显示图片。
-
-解压后，用软件 Typora [typoraio.cn](https://typoraio.cn/) 打开md文件。
-
+下载完后，解压 "离线版本.rar"，用[Typora](https://typoraio.cn/)打开md文件即可。
 
 
 
