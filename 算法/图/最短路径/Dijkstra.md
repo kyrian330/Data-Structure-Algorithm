@@ -2,7 +2,8 @@
 
 本节来学习一个点（源点）到其余各个顶点的最短距离，也叫做 “单元最短路径”。如求下图中的1号顶点到 2、3、4、5、6号顶点的最短距离。
 
-![1](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/1.png)
+
+![1](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/img/%E5%9B%BE%E8%BF%9B%E9%98%B6%E7%AE%97%E6%B3%95/1.png)
 
 #### 思路
 
