@@ -7,20 +7,19 @@
 上一次我们通过深搜，让搜索者往右走，一直尝试直到走不通。下面我们通过广搜，”一层 一层“扩展来找到星队。
 
 
-
 - 最开始搜索者在入口（1，1）处，他下一步可到达的点有（1，2），（2，1）。
 
-![1](img\万能的搜索\1.png)
+![1](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/1.png)
 
 
 
 - 但是星队不在这两个点上，所以要继续探索。
 
-![2](img\万能的搜索\2.png)
+![2](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/2.png)
 
 - 重复刚才的方法，直到找到星队为止。
 
-![3](img\万能的搜索\3.png)
+![3](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/3.png)
 
 
 
@@ -48,7 +47,7 @@ tail ++;
 b[1][1] = 1;
 ```
 
-![5](img\万能的搜索\5.png)
+![5](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/5.png)
 
 
 
@@ -87,21 +86,21 @@ tail ++;
 
 
 
-![6](img\万能的搜索\6.png)
+![6](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/6.png)
 
 
 
 - 观察地图发现，从（1，1）是可以到达（2，1）的，因此还需将（2，1）也加入队列，代码实现和观察对（1，2）的操作一样。
 
-![7](img\万能的搜索\7.png)
+![7](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/7.png)
 
 - 对点（1，1）扩展完后，（1，1）对我们已经没用了，此时我们将（1，1）出队。（head ++）此时头节点指向（1，2），我们继续扩展。（3，1）入队。
 
-![8](img\万能的搜索\8.png)
+![8](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/8.png)
 
 - （1，2）出队，继续搜索，直到找到星队。
 
-![9](img\万能的搜索\9.png)
+![9](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/9.png)
 
 
 
@@ -511,23 +510,23 @@ int main()
 
 ​		一块矩形土地被分成 N行M列单元格，格子上有水管或者树木（如下图（2，4）处有一树木），请旋转管道，构成连通的系统，并输出连通路径。
 
-![10](img\万能的搜索\10.png)
+![10](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/10.png)
 
 
 
 - 设0为树木，1~6表示管道的六种不同摆放方式。
 
-![11](img\万能的搜索\11.png)
+![11](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/11.png)
 
 
 
 - 开始探索
 
-![12](img\万能的搜索\12.png)
+![12](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/12.png)
 
 
 
-![13](img\万能的搜索\13.png)
+![13](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%90%9C%E7%B4%A2/img/%E4%B8%87%E8%83%BD%E7%9A%84%E6%90%9C%E7%B4%A2/13.png)
 
 
 
