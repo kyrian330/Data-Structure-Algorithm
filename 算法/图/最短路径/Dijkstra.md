@@ -1,14 +1,14 @@
 ### 一、Dijkstra算法
 
 
-
-![1](img\最短路径\1.png)
+![1](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/1.png)
 
 #### 思路
 
 用二维数组e来存储顶点之间边的关系，初始值如下。
 
-![2](img\最短路径\2.png)
+![2](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/2.png)
+
 
 还需要一个一维数组dis来存储1号顶点到其余各个顶点的初始路程，如下。(inf是infinity的缩写，表示无穷值)
 
