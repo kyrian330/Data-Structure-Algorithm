@@ -28,7 +28,7 @@
 
 
 
-![1](img\高级查找\1.png)
+![1](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/1.png)
 
 
 
@@ -48,7 +48,7 @@
 
 **②**插入结点到一个2结点的叶子上。由于2结点本身只有一个元素，所以将其升级为3结点即可。如同图8-8-3（图8-8-2的简化版），在左图插入元素3，遍历可知 3 < 4 < 8，于是只能考虑插入到叶子结点1的位置，自然想到将此结点变成一个3结点，像右图这样完成插入操作。
 
-![2](img\高级查找\2.png)
+![2](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/2.png)
 
 
 
@@ -56,7 +56,7 @@
 
 **3-1.** 第一种情况 ，图8-8-4，需要在左图插入5。遍历可知 4 < 5 < 8，因此它需要插入在拥有6、7元素的3结点位置。问题就在于6、7已经是3结点，不能再升级。此时发现它的双亲结点4是个2结点，因此考虑让结点4升级为3结点，不过这样4结点就必须有3个孩子，于是想到将6、7拆分，让6与4结合成3结点，将5作为中间孩子，将7作为右孩子。
 
-![3](img\高级查找\3.png)
+![3](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/3.png)
 
 
 
@@ -64,13 +64,13 @@
 
 
 
-![4](img\高级查找\4.png)
+![4](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/4.png)
 
 
 
 **3-3.** 再看一个例子，图8-8-6，在左图插入元素2。经遍历可得 1 < 2 < 4，因此应该插入在拥有1、3元素的3结点位置，发现1、3和4、6都是3结点，不能再插入，甚至8、12也是3结点，那就意味着，当前的三层树结构已经不能满足当前的结点增加了。于是拆分1  3、4   6、8   2。最终变为右图所示。
 
-![5](img\高级查找\5.png)
+![5](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/5.png)
 
 通过这个例子，让我们发现，如果2-3树插入的传播效应导致根结点的拆分，则树的高度就会增加。
 
@@ -82,7 +82,7 @@
 
 **①**所删元素位于3结点的叶子结点上。这很简单，只需要在该结点处删除该元素即可，不会影响到整棵树的其它结点结构。图8-8-7，删除元素9，只需将此结点改成只有元素10的2结点即可。
 
-![6](img\高级查找\6.png)
+![6](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/6.png)
 
 
 
@@ -92,7 +92,7 @@
 
 **②**所删元素位于2结点上，即要删除的是只有一个元素的结点。2-3树不同于普通的树结构，直接删除是不行的，图8-8-8，如果删除了结点1，那么4本来是个2结点（拥有两个孩子），此时就不满足定义了。
 
-![7](img\高级查找\7.png)
+![7](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/7.png)
 
 因此，对于删除叶子是2结点的情况，需要分为4种形势来处理。
 
@@ -100,25 +100,25 @@
 
 
 
-![8](img\高级查找\8.png)
+![8](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/8.png)
 
 **2-2.** 此结点双亲是2结点，它的右孩子也是2结点。图8-8-10，此时删除结点4，如果直接左旋会造成没有右孩子，因此需要对整棵树变形。做法就是，我们目标是让结点7变成3结点，那就得让比7稍大的元素8下来，随即就得让比元素8稍大的元素9补充结点8的位置，于是就有了8-8-10的中间的图，于是再右旋，变成右图结果。
 
 
 
-![9](img\高级查找\9.png)
+![9](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/9.png)
 
 **2-3.** 此结点双亲是个3结点。图8-8-11，此时删除结点10，意味着双亲12、14这个结点不再是3结点（删除10，双亲不再拥有3个孩子），于是将此结点拆分，并将12与13合并成为左孩子。
 
 
 
-![10](img\高级查找\10.png)
+![10](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/10.png)
 
 **2-4.** 如果当前树是一个满二叉树的情况，此时删除任何一个叶子都会使得整棵树不再满足2-3树的定义。图8-8-12，假设删除叶子结点8时，就不得不考虑将2-3树的层数减少，办法是将8的双亲和其左子树6合并成为一个3结点，再将9和14合并成3结点，结果如右图。
 
 
 
-![11](img\高级查找\11.png)
+![11](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/11.png)
 
 ---
 
@@ -130,13 +130,13 @@
 
 
 
-![12](img\高级查找\12.png)
+![12](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/12.png)
 
 **3-2.**如果要删除的分支是3结点的某一元素，图8-8-14，删除12、14结点的12，简单分析，删除12后将左孩子10上升到删除位置合适。
 
 
 
-![13](img\高级查找\13.png)
+![13](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/13.png)
 
 ​		最后，如果对2-3树的插入删除等所有情况都进行讲解，既占篇幅，有没必要，这些操作都是有规律的，需要自己在实践中体会。
 
@@ -150,13 +150,13 @@
 
 ​		由于2-3-4树和2-3树是类似的，这里就简单演示一下，构建一个数组为{7，1，2，5，6，9，8，4，3}的2-3-4树的过程，图8-8-15。图1是分别插入1、2、7的结果，因为这时3个元素满足2-3-4树单个4结点的定义，而插入元素5后，超过了4结点的定义，因此拆分成图2。之后的图都是在元素不断插入最后形成图7的2-3-4树。
 
-![14](img\高级查找\14.png)
+![14](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/14.png)
 
 
 
 图8-8-16是对一个2-3-4树的删除结点的演变过程，删除顺序是1、6、3、4、5、2、9。
 
-![15](img\高级查找\15.png)
+![15](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/15.png)
 
 
 
@@ -168,7 +168,7 @@
 
 一个m阶B树具有如下属性 :
 
-![16](img\高级查找\16.png)
+![16](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/16.png)
 
 
 
@@ -176,13 +176,13 @@
 
 
 
-![17](img\高级查找\17.png)
+![17](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/17.png)
 
 ​		在B树上查找的过程是一个顺指针查找结点，和在结点中查找关键字的交叉过程。例如查找元素7，首先从外存（如硬盘）读取到根结点的3、5、8三个元素，发现7不在其中，但是在5、8之间，因此就通过A2再读取外存的6、7结点，查找到所要的元素。至于B树的删除，方式与2-3树、2-3-4树类似，只不过阶数可能会很大而已。
 
 
 
-![18](img\高级查找\18.png)
+![18](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/18.png)
 
 
 
@@ -190,13 +190,13 @@
 
 ​		尽管前面讲了B树的诸多好处，但其实它还是有缺陷的，对于树结构来说，我们都可以通过中序遍历来顺序查找树中的元素，这一切都是在内存中运行的。
 
-![19](img\高级查找\19.png)
+![19](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/19.png)
 
-![20](img\高级查找\20.png)
+![20](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/20.png)
 
 
 
-![21](img\高级查找\21.png)
+![21](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/img/%E9%AB%98%E7%BA%A7%E6%9F%A5%E6%89%BE/21.png)
 
 上述图片摘抄与《大话数据结构》，更多详细内容可以参考《算法导论》
 
