@@ -32,13 +32,13 @@ for (int i = 1; i <= m ; ++i)
 
 把每条边都松弛一边会怎样。求下图1号顶点到其余所有顶点的最短路径。
 
-![3](img\最短路径\3.png)
+![3](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/3.png)
 
 
 
 - 还是用dis数组存储1号顶点到所有顶点的距离。
 
-![4](img\最短路径\4.png)
+![4](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/4.png)
 
 ​		根据边给出的顺序，我们先处理第一条边 **2 -> 3（2）**，判断**dis[3]**是否大于**dis[2] + 2**，此时dis[3]为INF，dis[2]为INF，所以通过 **2 -> 3（2）**这条边不能使dis[3]值变小，松弛失败。
 
@@ -49,19 +49,19 @@ for (int i = 1; i <= m ; ++i)
 
 对所有边松弛一遍后结果如下:
 
-![5](img\最短路径\5.png)
+![5](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/5.png)
 
 
 
 这时1到2、1到5号顶点距离都缩短了，接下来再对所有边进行松弛，看看会发生上面。
 
-![6](img\最短路径\6.png)
+![6](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/6.png)
 
 ​		现在dis[3]、dis[4]也发生了改变。我们发现第一轮松弛后，得到的是源点 “**只能经过一条边**”到达其余顶点的最短路径长度。第二轮松弛之后，得到的是从源点到 “**最多经过两条边**”到达其余各点的最短路径长度。那么需要进行多少轮松弛呢？其实要**进行n - 1**轮，因为在一个含有n个顶点的图中，任意两点之间的最短路径最多包含n - 1条边。
 
 
 
-![7](img\最短路径\7.png)
+![7](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/7.png)
 
 在这个例子，其实进行3轮松弛后dis数组已经定形了，所以更具体地说，是**最多**进行 n - 1轮松弛。
 
@@ -170,15 +170,15 @@ while (head < tail) {  // 队不空时循环
 5 3 6
 ```
 
-![8](img\最短路径\8.png)
+![8](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/8.png)
 
 - 首先将1号顶点入队
 
-![9](img\最短路径\9.png)
+![9](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/9.png)
 
 ​		队首1号顶点的出边有**1 -> 2**、**1 -> 5**。先看**1 -> 2**，因为dis[2] > dis[1] + (**1 -> 2**)，dis[2]值变成2，松弛成功。并且2号顶点不在队列，因此将2号入队。再看**1 -> 5**，dis[5] > dis[1] + (**1 -> 5**)，dis[5] = 10，顶点5入队。结果如下:
 
-![10](img\最短路径\10.png)
+![10](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/10.png)
 
 
 
@@ -186,11 +186,11 @@ while (head < tail) {  // 队不空时循环
 
 出边**2 -> 5**将1到5顶点的路程缩短（dis[5]更新成9），但是5号**已经**在队列中，因此**不能**再次入队。
 
-![11](img\最短路径\11.png)
+![11](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/11.png)
 
 - 依次对剩下的点做相同处理，直到队列为空。最终数组dis和队列que状态如下：
 
-![12](img\最短路径\12.png)
+![12](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/12.png)
 
 
 
@@ -270,10 +270,10 @@ int main() {
 
 
 
-![13](img\最短路径\13.png)
+![13](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/13.png)
 
 
 
 ### 对比和分析
 
-![14](img\最短路径\14.png)
+![14](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/img/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/14.png)
