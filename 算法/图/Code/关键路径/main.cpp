@@ -7,7 +7,7 @@ int *etv, *ltv;
 int *stack2;
 int top2;
 
-// ÁÚ½Ó¾ØÕó ×ª»»³É ÁÚ½Ó±í
+// é‚»æ¥çŸ©é˜µ è½¬æ¢æˆ é‚»æ¥è¡¨
 void MatToAdj(MatGraph g, AdjGraph *&G) {
     int i, j;
     ArcNode *p;
@@ -20,18 +20,18 @@ void MatToAdj(MatGraph g, AdjGraph *&G) {
     }
     for (i=0; i<g.n; i++)
         for (j=0; j<=g.n; j++)
-            if (g.edges[i][j]!=0 && g.edges[i][j]!=INF) {  // ÓĞÒ»Ìõ±ß
+            if (g.edges[i][j]!=0 && g.edges[i][j]!=INF) {  // æœ‰ä¸€æ¡è¾¹
                 p=(ArcNode *)malloc(sizeof(ArcNode));
                 p->adjvex = j;
                 p->weight = g.edges[i][j];
                 p->nextarc = G->adjlist[i].firstarc;
                 G->adjlist[i].firstarc = p;
-                G->adjlist[j].in++;    // ¸Ã¶¥µãµÄÈë¶È +1
+                G->adjlist[j].in++;    // è¯¥é¡¶ç‚¹çš„å…¥åº¦ +1
             }
 }
 
 
-// ÍØÆËÅÅĞò
+// æ‹“æ‰‘æ’åº
 int TopologicalSort(AdjGraph* G) {
     ArcNode *p;
     int i, k, gettop;
@@ -44,24 +44,24 @@ int TopologicalSort(AdjGraph* G) {
             stack[++top] = i;
 
     top2 = 0;
-    etv = (int *)malloc(G->n * sizeof(int) ); // ÊÂ¼ş×îÔç·¢ÉúÊ±¼äÊı×é
+    etv = (int *)malloc(G->n * sizeof(int) ); // äº‹ä»¶æœ€æ—©å‘ç”Ÿæ—¶é—´æ•°ç»„
     for(i=0; i<G->n; i++)
-        etv[i] = 0;    // ³õÊ¼»¯
-    stack2 = (int *)malloc(G->n * sizeof(int) );  // ³õÊ¼»¯ÍØÆËĞòÁĞÕ»
+        etv[i] = 0;    // åˆå§‹åŒ–
+    stack2 = (int *)malloc(G->n * sizeof(int) );  // åˆå§‹åŒ–æ‹“æ‰‘åºåˆ—æ ˆ
 
-    printf("ÍØÆËĞòÁĞ:  ");
+    printf("æ‹“æ‰‘åºåˆ—:  ");
     while(top!=0) {
         gettop = stack[top--];
         printf("%d -> ",G->adjlist[gettop].data);   count++;
 
-        stack2[++top2]=gettop;        // ½«µ¯³öµÄ¶¥µãĞòºÅÑ¹ÈëÍØÆËĞòÁĞµÄÕ»
+        stack2[++top2]=gettop;        // å°†å¼¹å‡ºçš„é¡¶ç‚¹åºå·å‹å…¥æ‹“æ‰‘åºåˆ—çš„æ ˆ
         p = G->adjlist[gettop].firstarc;
         while(p) {
             k = p->adjvex;
             if( !(-- G->adjlist[k].in) )
                 stack[++top] = k;
 
-            if((etv[gettop] + p->weight) > etv[k])    // Çó¸÷¶¥µãÊÂ¼şµÄ×îÔç·¢ÉúÊ±¼ä etvÖµ
+            if((etv[gettop] + p->weight) > etv[k])    // æ±‚å„é¡¶ç‚¹äº‹ä»¶çš„æœ€æ—©å‘ç”Ÿæ—¶é—´ etvå€¼
                 etv[k] = etv[gettop] + p->weight;
 
             p = p->nextarc;
@@ -74,24 +74,24 @@ int TopologicalSort(AdjGraph* G) {
         return 0;
 }
 
-// Çó¹Ø¼üÂ·¾¶, GÎªÓĞÏòÍø, Êä³öGµÄ¸÷Ïî¹Ø¼ü»î¶¯
+// æ±‚å…³é”®è·¯å¾„, Gä¸ºæœ‰å‘ç½‘, è¾“å‡ºGçš„å„é¡¹å…³é”®æ´»åŠ¨
 void CriticalPath(AdjGraph* G) {
     ArcNode *p;
     int i, gettop, k, j;
-    int ete, lte;  // ÉùÃ÷»î¶¯×îÔç·¢ÉúÊ±¼äºÍ×î³Ù·¢ÉúÊ±¼ä±äÁ¿
-    TopologicalSort(G);   // ÇóÍØÆËĞòÁĞ£¬¼ÆËãÊı×éetvºÍstack2µÄÖµ
-    ltv=(int *)malloc(G->n*sizeof(int));// ÊÂ¼ş×îÔç·¢ÉúÊ±¼äÊı×é
+    int ete, lte;  // å£°æ˜æ´»åŠ¨æœ€æ—©å‘ç”Ÿæ—¶é—´å’Œæœ€è¿Ÿå‘ç”Ÿæ—¶é—´å˜é‡
+    TopologicalSort(G);   // æ±‚æ‹“æ‰‘åºåˆ—ï¼Œè®¡ç®—æ•°ç»„etvå’Œstack2çš„å€¼
+    ltv=(int *)malloc(G->n*sizeof(int));// äº‹ä»¶æœ€æ—©å‘ç”Ÿæ—¶é—´æ•°ç»„
     for(i=0; i<G->n; i++)
-        ltv[i]=etv[G->n-1];    // ³õÊ¼»¯
+        ltv[i]=etv[G->n-1];    // åˆå§‹åŒ–
 
     printf("etv: \t");
     for(i=0; i<G->n; i++)
         printf("%d -> ",etv[i]);
     printf("\n");
 
-    while(top2!=0) {    // ³öÕ»ÊÇÇóltv
+    while(top2!=0) {    // å‡ºæ ˆæ˜¯æ±‚ltv
         gettop=stack2[top2--];
-        for(p = G->adjlist[gettop].firstarc; p; p = p->nextarc) {       // Çó¸÷¶¥µãÊÂ¼şµÄ×î³Ù·¢ÉúÊ±¼ä ltvÖµ
+        for(p = G->adjlist[gettop].firstarc; p; p = p->nextarc) {       // æ±‚å„é¡¶ç‚¹äº‹ä»¶çš„æœ€è¿Ÿå‘ç”Ÿæ—¶é—´ ltvå€¼
             k = p->adjvex;
             if(ltv[k] - p->weight < ltv[gettop])
                 ltv[gettop] = ltv[k] - p->weight;
@@ -103,12 +103,12 @@ void CriticalPath(AdjGraph* G) {
         printf("%d -> ",ltv[i]);
     printf("\n");
 
-    for(j=0; j<G->n; j++) {       // Çóete,lteºÍ¹Ø¼ü»î¶¯
+    for(j=0; j<G->n; j++) {       // æ±‚ete,lteå’Œå…³é”®æ´»åŠ¨
         for(p = G->adjlist[j].firstarc; p; p = p->nextarc) {
             k = p->adjvex;
-            ete = etv[j];        // »î¶¯×îÔç·¢ÉúÊ±¼ä
-            lte = ltv[k] - p->weight; // »î¶¯×î³Ù·¢ÉúÊ±¼ä
-            if(ete == lte)    // Á½ÕßÏàµÈ¼´ÔÚ¹Ø¼üÂ·¾¶ÉÏ
+            ete = etv[j];        // æ´»åŠ¨æœ€æ—©å‘ç”Ÿæ—¶é—´
+            lte = ltv[k] - p->weight; // æ´»åŠ¨æœ€è¿Ÿå‘ç”Ÿæ—¶é—´
+            if(ete == lte)    // ä¸¤è€…ç›¸ç­‰å³åœ¨å…³é”®è·¯å¾„ä¸Š
                 printf("<v%d - v%d> length: %d \n",G->adjlist[j].data, G->adjlist[k].data, p->weight);
         }
     }
@@ -121,22 +121,22 @@ int main()
     MatGraph g;
     int n, e;
     int u, v, w;
-    printf("ÊäÈë:\n");
+    printf("è¾“å…¥:\n");
     scanf("%d %d", &n, &e);
-    InitMat(g, n, e);    // ³õÊ¼»¯
-    // ²åÈë±ß
+    InitMat(g, n, e);    // åˆå§‹åŒ–
+    // æ’å…¥è¾¹
     for (int i=0; i<e; i++) {
         scanf("%d %d %d", &u, &v, &w);
         InsertEdge(g, u, v, w);
     }
 
-    printf("Êä³ö:\n");
-    printf("Í¼GµÄÁÚ½Ó¾ØÕó:\n");  DispMat(g);
+    printf("è¾“å‡º:\n");
+    printf("å›¾Gçš„é‚»æ¥çŸ©é˜µ:\n");  DispMat(g);
     MatToAdj(g, G);
-    printf("Í¼GµÄÁÚ½Ó±í:\n");  DispAdj(G);
+    printf("å›¾Gçš„é‚»æ¥è¡¨:\n");  DispAdj(G);
 
     CriticalPath(G);
-	DestroyMat(g);
+    DestroyMat(g);
     DestroyAdj(G);
 }
 
