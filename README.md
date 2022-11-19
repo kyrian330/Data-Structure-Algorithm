@@ -20,7 +20,6 @@
 
 2022-10-08 —— 至今
 > 请仅做个人学习、研究使用
-https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/README.img
 
 
 ### :mortar_board: 一些有趣的算法
