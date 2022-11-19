@@ -8,7 +8,7 @@
 
 - 图示
 
-![50](C:\Users\TF\Desktop\离线版本\算法\图\img\图进阶算法\50.png)
+![50](https://github.com/kyrian330/Data-Structure-Algorithm/blob/main/%E7%AE%97%E6%B3%95/%E5%9B%BE/img/%E5%9B%BE%E8%BF%9B%E9%98%B6%E7%AE%97%E6%B3%95/50.png)
 
 
 
